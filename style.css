@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --light0: #fff;
+    --light1: #eee;
+    --light2: #ccc;
+
+    --dark0: #000;
+    --dark1: #555;
+    --dark2: #999;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+aside{
+    background-color: var(--light1);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 80px;
+}
+
+table{
+    border-spacing: 0;
+}
+
+td{
+    max-width: 0;
+}
+
+thead{
+    background-color: var(--light2);
+}
