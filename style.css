@@ -78,6 +78,11 @@ tbody td{
     transform: translateY(-2px);
 }
 
+.sidebutton:active{
+    box-shadow: 0px 0px;
+    transform: translate(0px);
+}
+
 .sidebutton:nth-last-child(2){
     background-color: var(--lightgreen);
 }
