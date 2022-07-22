@@ -40,7 +40,7 @@ main{
 table{
     table-layout: fixed;
     border-collapse: separate;
-    border-spacing: 2px 0;
+    border-spacing: 2px 2px;
 }
 
 td{
@@ -74,7 +74,7 @@ tbody td{
 }
 
 .sidebutton:hover{
-    box-shadow: 0 2px 2px #999;
+    box-shadow: 0 2px 10px #999;
     transform: translateY(-2px);
 }
 
@@ -86,14 +86,14 @@ tbody td{
     background-color: var(--lightred);
 }
 
-tbody:nth-child(2) td:last-child{
+tbody tr:first-child td:last-child{
     border-top-right-radius: 5px;
 }
 
-tbody:last-child td:last-child{
+tbody tr:last-child td:last-child{
     border-bottom-right-radius: 5px;
 }
 
-tbody:last-child td:first-child{
+tbody tr:last-child td:first-child{
     border-bottom-left-radius: 5px;
 }
