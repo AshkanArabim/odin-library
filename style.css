@@ -91,7 +91,7 @@ tbody td{
 }
 
 .sidebutton:nth-last-child(2){
-    background-color: var(--lightgreen);
+    background-color: var(--lightblue);
 }
 
 .sidebutton:last-child{
