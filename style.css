@@ -9,6 +9,7 @@
     --light-text: black;
     --lightgreen: #7CFC00;
     --lightred: #F08080;
+    --lightblue: #ADD8E6;
 
     --dark0: #000;
     --dark1: #555;
@@ -16,6 +17,7 @@
     --dark-text: white;
     --darkgreen: #006400;
     --darkred: #8B0000;
+    --darkblue: #0000CC;
 }
 
 body{
@@ -116,4 +118,33 @@ tbody tr:last-child td:first-child{
 
 #theme path{
     fill: var(--light-text);
+}
+
+form{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form label{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    border-bottom: 1px solid gray;
+}
+
+form label input{
+    flex: 1 1 0;
+    text-align: end;
+    background-color: transparent;
+    border: none;
+}
+
+input:focus, input:focus-visible{
+    outline: 0;
+}
+
+input[type='text'], input[type='number']{
+    width: 170px;
 }
