@@ -72,15 +72,18 @@ tbody td{
     margin: 0;
     border: 0;
     width: 8.33%;
+}
+
+.sidebutton, button[type='submit']{
     transition: 0.1s;
 }
 
-.sidebutton:hover{
+.sidebutton:hover, button[type='submit']:hover{
     box-shadow: 0 2px 10px #999;
     transform: translateY(-2px);
 }
 
-.sidebutton:active{
+.sidebutton:active, button[type='submit']:active{
     box-shadow: 0px 0px;
     transform: translate(0px);
 }
@@ -156,6 +159,11 @@ input[type='text'], input[type='number']{
 }
 
 button[type='submit']{
-    width: 100px;
+    min-width: 100px;
     align-self: center;
+    background-color: var(--lightgreen);
+    border-radius: 5px;
+    border: 0;
+    font-size: 15px;
+    padding: 5px;
 }
