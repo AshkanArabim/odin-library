@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+/*to do: change all fonts to rem*/
+
 :root{
     --light0: #fff;
     --light1: #eee;
