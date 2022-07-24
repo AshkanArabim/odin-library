@@ -75,7 +75,7 @@ tbody td{
 }
 
 .sidebutton, button[type='submit']{
-    transition: 0.1s;
+    transition: 0.05s;
 }
 
 .sidebutton:hover, button[type='submit']:hover{
