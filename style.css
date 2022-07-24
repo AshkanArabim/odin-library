@@ -39,6 +39,7 @@ main{
     display: flex;
     flex-direction: column;
     padding: 50px 80px;
+    overflow: auto;
 }
 
 table{
@@ -116,6 +117,10 @@ tbody tr:last-child td:first-child{
     left: 10px;
     width: 40px;
     height: 40px;
+}
+
+#themeholder:hover{
+    transform: scale(-1);
 }
 
 #theme{
