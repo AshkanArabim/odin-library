@@ -143,10 +143,19 @@ form label input{
     border: none;
 }
 
+form label input[type='checkbox']{
+    flex: 0 0 0;
+}
+
 input:focus, input:focus-visible{
     outline: 0;
 }
 
 input[type='text'], input[type='number']{
     width: 170px;
+}
+
+button[type='submit']{
+    width: 100px;
+    align-self: center;
 }
