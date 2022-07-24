@@ -107,8 +107,10 @@ tbody tr:last-child td:first-child{
 
 #themeholder{
     position: fixed;
-    top: 10px;
-    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
 }
 
 #theme{
