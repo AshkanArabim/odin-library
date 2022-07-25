@@ -35,6 +35,19 @@ aside{
     background-color: var(--light1);
 }
 
+#hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 80px;
+}
+
+#hero h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
 main{
     display: flex;
     flex-direction: column;
