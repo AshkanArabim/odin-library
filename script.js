@@ -18,6 +18,8 @@ function bookToLibrary(book) {
 
 function renderBooks(){
     const bookTable = document.querySelector('tbody')
+
+    bookTable.textContent = '';
     
     for (let bookIndex in library) {
         const bookRow = document.createElement('tr');
@@ -40,6 +42,14 @@ function renderBooks(){
     }
 }
 
-// document.querySelector("button[type='submit']").addEventListener(click, () => {
-    
-// })
+
+document.querySelector("form").addEventListener('submit', () => {
+    const formTitle = document.querySelector('#title').value;
+    const formAuthor = document.querySelector('#author').value;
+    const formPages = document.querySelector('#pages').value;
+    const formRead = document.querySelector('#read').value;
+    let x = new Book(formTitle, formAuthor, formPages, formRead);
+    bookToLibrary(x);
+    renderBooks();
+    //the cells get rendered at this point in debugging, but when the debugger is closed, the cells reset.
+})
