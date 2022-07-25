@@ -1,4 +1,8 @@
 let library = [];
+let deleteBtn;
+let editBtn;
+
+// document.querySelectore
 
 function Book(title, author, pages, pagesRead) {
     this.title = title;
@@ -20,7 +24,6 @@ function renderBooks(){
     const bookTable = document.querySelector('tbody')
 
     bookTable.textContent = '';
-    console.log('reset the table')
     
     for (let bookIndex in library) {
         const bookRow = document.createElement('tr');
@@ -36,13 +39,23 @@ function renderBooks(){
             const sideBtn = document.createElement('td');
             sideBtn.setAttribute('class','sidebutton');
             sideBtn.textContent = x[i]
+            if (i === 0) {
+                sideBtn.addEventListener('click', () => {
+                    console.log('editted')
+                })
+            } else if(i === 1) {
+                sideBtn.addEventListener('click', () => {
+                    console.log('deleted');
+                    library.splice(bookIndex, 1);
+                    renderBooks();
+                })
+            }
             bookRow.appendChild(sideBtn);
         }
         
         bookTable.appendChild(bookRow)
     }
 }
-
 
 document.querySelector("form").addEventListener('submit', () => {
     const formTitle = document.querySelector('#title').value;
@@ -52,7 +65,6 @@ document.querySelector("form").addEventListener('submit', () => {
     let x = new Book(formTitle, formAuthor, formPages, formRead);
     bookToLibrary(x);
     renderBooks();
-    //the cells get rendered at this point in debugging, but when the debugger is closed, the cells reset.
 })
 
 //theme:
