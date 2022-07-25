@@ -44,10 +44,10 @@ function renderBooks(){
             if (i === 0) {
                 sideBtn.addEventListener('click', () => {
                     console.log('editted')
-                    formTitle = library[bookIndex].title;
-                    formAuthor = library.bookIndex.author;
-                    formPages = library.bookIndex.pages;
-                    formRead = library.bookIndex.pagesRead;
+                    document.querySelector('#title').value = library[bookIndex].title;
+                    document.querySelector('#author').value = library[bookIndex].author;
+                    document.querySelector('#pages').value = library[bookIndex].pages;
+                    document.querySelector('#read').value = library[bookIndex].pagesRead;
                     library.splice(bookIndex, 1);
                     subBtn.textContent = 'Submit Changes';
 
