@@ -13,7 +13,7 @@ function Book(title, author, pages, pagesRead) {
 }
 
 function bookToLibrary(book) {
-    library.push(book)
+    library.unshift(book)
 }
 
 function renderBooks(){
