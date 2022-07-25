@@ -2,11 +2,6 @@ let library = [];
 
 const form = document.querySelector('form');
 
-const formTitle = document.querySelector('#title').value;
-const formAuthor = document.querySelector('#author').value;
-const formPages = document.querySelector('#pages').value;
-const formRead = document.querySelector('#read').value;
-
 const subBtn = document.querySelector("button[type='submit']");
 
 // document.querySelectore
@@ -72,6 +67,10 @@ function renderBooks(){
 }
 
 form.addEventListener('submit', () => {
+    const formTitle = document.querySelector('#title').value;
+    const formAuthor = document.querySelector('#author').value;
+    const formPages = document.querySelector('#pages').value;
+    const formRead = document.querySelector('#read').value;
     let x = new Book(formTitle, formAuthor, formPages, formRead);
     bookToLibrary(x);
     renderBooks();
