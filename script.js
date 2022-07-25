@@ -1,6 +1,13 @@
 let library = [];
-let deleteBtn;
-let editBtn;
+
+const form = document.querySelector('form');
+
+const formTitle = document.querySelector('#title').value;
+const formAuthor = document.querySelector('#author').value;
+const formPages = document.querySelector('#pages').value;
+const formRead = document.querySelector('#read').value;
+
+const subBtn = document.querySelector("button[type='submit']");
 
 // document.querySelectore
 
@@ -42,6 +49,13 @@ function renderBooks(){
             if (i === 0) {
                 sideBtn.addEventListener('click', () => {
                     console.log('editted')
+                    formTitle = library[bookIndex].title;
+                    formAuthor = library.bookIndex.author;
+                    formPages = library.bookIndex.pages;
+                    formRead = library.bookIndex.pagesRead;
+                    library.splice(bookIndex, 1);
+                    subBtn.textContent = 'Submit Changes';
+
                 })
             } else if(i === 1) {
                 sideBtn.addEventListener('click', () => {
@@ -57,14 +71,11 @@ function renderBooks(){
     }
 }
 
-document.querySelector("form").addEventListener('submit', () => {
-    const formTitle = document.querySelector('#title').value;
-    const formAuthor = document.querySelector('#author').value;
-    const formPages = document.querySelector('#pages').value;
-    const formRead = document.querySelector('#read').value;
+form.addEventListener('submit', () => {
     let x = new Book(formTitle, formAuthor, formPages, formRead);
     bookToLibrary(x);
     renderBooks();
+    form.reset();
 })
 
 //theme:
