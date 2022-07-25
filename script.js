@@ -20,6 +20,7 @@ function renderBooks(){
     const bookTable = document.querySelector('tbody')
 
     bookTable.textContent = '';
+    console.log('reset the table')
     
     for (let bookIndex in library) {
         const bookRow = document.createElement('tr');
