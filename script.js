@@ -53,3 +53,8 @@ document.querySelector("form").addEventListener('submit', () => {
     renderBooks();
     //the cells get rendered at this point in debugging, but when the debugger is closed, the cells reset.
 })
+
+//theme:
+document.querySelector('#themeholder').addEventListener('click', () => {
+    document.querySelector('body').classList.toggle('dark')
+});

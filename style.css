@@ -5,21 +5,13 @@
 /*to do: change all fonts to rem*/
 
 :root{
-    --light0: #fff;
-    --light1: #eee;
-    --light2: #ccc;
-    --light-text: black;
-    --lightgreen: #7CFC00;
-    --lightred: #F08080;
-    --lightblue: #ADD8E6;
-
-    --dark0: #000;
-    --dark1: #555;
-    --dark2: #999;
-    --dark-text: white;
-    --darkgreen: #006400;
-    --darkred: #8B0000;
-    --darkblue: #0000CC;
+    --lv0: #fff;
+    --lv1: #eee;
+    --lv2: #ccc;
+    --text: black;
+    --green: #7CFC00;
+    --red: #F08080;
+    --blue: #ADD8E6;
 }
 
 body{
@@ -28,11 +20,22 @@ body{
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    color: var(--light-text);
+    color: var(--text);
+    caret-color: var(--text);
+}
+
+.dark{
+    --lv0: #000;
+    --lv1: #444;
+    --lv2: #777;
+    --text: white;
+    --green: #006400;
+    --red: #8B0000;
+    --blue: #0000CC;
 }
 
 aside{
-    background-color: var(--light1);
+    background-color: var(--lv1);
 }
 
 #hero{
@@ -49,6 +52,7 @@ aside{
 }
 
 main{
+    background-color: var(--lv0);
     display: flex;
     flex-direction: column;
     padding: 50px 80px;
@@ -76,11 +80,11 @@ thead td:last-child{
 }
 
 thead td{
-    background-color: var(--light2);
+    background-color: var(--lv2);
 }
 
 tbody td{
-    background-color: var(--light1);
+    background-color: var(--lv1);
 }
 
 .sidebutton{
@@ -105,11 +109,11 @@ tbody td{
 }
 
 .sidebutton:nth-last-child(2){
-    background-color: var(--lightblue);
+    background-color: var(--blue);
 }
 
 .sidebutton:last-child{
-    background-color: var(--lightred);
+    background-color: var(--red);
 }
 
 tbody tr:first-child td:last-child{
@@ -142,7 +146,7 @@ tbody tr:last-child td:first-child{
 }
 
 #theme path{
-    fill: var(--light-text);
+    fill: var(--text);
 }
 
 form{
@@ -167,22 +171,23 @@ input{
     height: 20px;
     padding: 0 20px;
     border: 0;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid var(--lv2);
     background-color: transparent;
     transition: 0.1s;
 }
 
 input:focus-visible, input:focus{
     outline: 0;
-    border-bottom: 3px solid black; 
+    border-bottom: 3px solid var(--text); 
 }
 
 button[type='submit']{
     min-width: 100px;
     align-self: center;
-    background-color: var(--lightgreen);
+    background-color: var(--green);
     border-radius: 5px;
     border: 0;
     font-size: 15px;
     padding: 5px;
+    color: var(--text);
 }
