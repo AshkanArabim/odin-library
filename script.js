@@ -7,7 +7,6 @@ const subBtn = document.querySelector("button[type='submit']");
 for (i=0; i<5; i++) {
     const btnNames = ['titleSorter','authorSorter','pagesSorter','readSorter','finishedSorter'];
     window[btnNames[i]] = document.querySelector(`thead td:nth-child(${i+1})`);
-    console.log(window[btnNames[i]]);
 }
 
 function Book(title, author, pages, pagesRead) {
@@ -69,25 +68,30 @@ function renderBooks(){
     }
 }
 
-function sortTitle(list) {
-    list.sort((a,b) => {
+function sortTitle() {
+    library.sort((a,b) => {
         if(a.title > b.title){return -1;}
         else if(a.title < b.title){return 1;}
         else {return 0;}
     });
     renderBooks();
+    console.log('sort title')
 }
 
 function sortAuthor() {
-
+    console.log('sort author')
 }
 
 function sortPages() {
-
+    console.log('sort pages')
 }
 
 function sortRead() {
+    console.log('sort read')
+}
 
+function sortFinished() {
+    console.log('sort finished')
 }
 
 form.addEventListener('submit', () => {
@@ -101,6 +105,12 @@ form.addEventListener('submit', () => {
     renderBooks();
     form.reset();
 })
+
+for (i=0; i<5; i++) {
+    const btnNames = ['titleSorter','authorSorter','pagesSorter','readSorter','finishedSorter'];
+    const funcs = ['sortTitle', 'sortAuthor', 'sortPages', 'sortRead', 'sortFinished'];
+    window[btnNames[i]].addEventListener('click', window[funcs[i]]);
+}
 
 //theme:
 document.querySelector('#themeholder').addEventListener('click', () => {
