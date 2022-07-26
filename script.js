@@ -76,6 +76,7 @@ form.addEventListener('submit', () => {
     bookToLibrary(x);
     renderBooks();
     form.reset();
+    document.querySelector('#title').focus()
 })
 
 for (let i=0; i<5; i++) {
