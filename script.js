@@ -72,6 +72,10 @@ form.addEventListener('submit', () => {
     const formAuthor = document.querySelector('#author').value;
     const formPages = document.querySelector('#pages').value;
     const formRead = document.querySelector('#read').value;
+    if (formPages < formRead) {
+        alert("Pages read can't be more than total book pages.")
+        return false;
+    };
     let x = new Book(formTitle, formAuthor, formPages, formRead);
     bookToLibrary(x);
     renderBooks();
