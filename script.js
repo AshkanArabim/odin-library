@@ -1,11 +1,9 @@
 let library = [];
-
 const form = document.querySelector('form');
-
 const subBtn = document.querySelector("button[type='submit']");
-
-for (i=0; i<5; i++) {
-    const btnNames = ['titleSorter','authorSorter','pagesSorter','readSorter','finishedSorter'];
+const btnNames = ['titleSorter','authorSorter','pagesSorter','readSorter','finishedSorter'];
+const attrs = ['title','author','pages','pagesRead','isFinished'];
+for (let i=0; i<5; i++) {
     window[btnNames[i]] = document.querySelector(`thead td:nth-child(${i+1})`);
 }
 
@@ -16,7 +14,7 @@ function Book(title, author, pages, pagesRead) {
     this.pagesRead = pagesRead;
     if (this.pages > this.pagesRead) {
         this.isFinished = false;
-    } else {
+    } else if (this.pages === this.pagesRead) {
         this.isFinished = true;
     }
 }
@@ -68,32 +66,6 @@ function renderBooks(){
     }
 }
 
-function sortTitle() {
-    library.sort((a,b) => {
-        if(a.title > b.title){return -1;}
-        else if(a.title < b.title){return 1;}
-        else {return 0;}
-    });
-    renderBooks();
-    console.log('sort title')
-}
-
-function sortAuthor() {
-    console.log('sort author')
-}
-
-function sortPages() {
-    console.log('sort pages')
-}
-
-function sortRead() {
-    console.log('sort read')
-}
-
-function sortFinished() {
-    console.log('sort finished')
-}
-
 form.addEventListener('submit', () => {
     subBtn.textContent = 'Add Book';
     const formTitle = document.querySelector('#title').value;
@@ -106,10 +78,16 @@ form.addEventListener('submit', () => {
     form.reset();
 })
 
-for (i=0; i<5; i++) {
-    const btnNames = ['titleSorter','authorSorter','pagesSorter','readSorter','finishedSorter'];
-    const funcs = ['sortTitle', 'sortAuthor', 'sortPages', 'sortRead', 'sortFinished'];
-    window[btnNames[i]].addEventListener('click', window[funcs[i]]);
+for (let i=0; i<5; i++) {
+    window[btnNames[i]].addEventListener('click', () => {
+        library.sort((a,b) => {
+            if(a[attrs[i]] > b[attrs[i]]) {return -1;}
+            else if (a[attrs[i]] < b[attrs[i]]) {return 1;}
+            else {return 0;};
+        })
+        renderBooks()
+        console.log(`sort ${attrs[i]}`)
+    });
 }
 
 //theme:
