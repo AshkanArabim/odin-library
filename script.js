@@ -44,7 +44,6 @@ function renderBooks(){
             sideBtn.textContent = x[i]
             if (i === 0) {
                 sideBtn.addEventListener('click', () => {
-                    console.log('editted')
                     document.querySelector('#title').value = library[bookIndex].title;
                     document.querySelector('#author').value = library[bookIndex].author;
                     document.querySelector('#pages').value = library[bookIndex].pages;
@@ -54,7 +53,6 @@ function renderBooks(){
                 })
             } else if(i === 1) {
                 sideBtn.addEventListener('click', () => {
-                    console.log('deleted');
                     library.splice(bookIndex, 1);
                     renderBooks();
                 })
@@ -90,8 +88,13 @@ for (let i=0; i<5; i++) {
             else if (a[attrs[i]] < b[attrs[i]]) {return 1;}
             else {return 0;};
         })
+        for (let i=0; i<5; i++) {
+            let btnText = window[btnNames[i]];
+            btnText.textContent = btnText.textContent.replaceAll('⇑', '');
+            btnText.textContent = btnText.textContent.replaceAll('⇓', '');
+        }
+        window[btnNames[i]].textContent = '⇑' + window[btnNames[i]].textContent;
         renderBooks()
-        console.log(`sort ${attrs[i]}`)
     });
 }
 
