@@ -4,7 +4,11 @@ const form = document.querySelector('form');
 
 const subBtn = document.querySelector("button[type='submit']");
 
-// document.querySelectore
+for (i=0; i<5; i++) {
+    const btnNames = ['titleSorter','authorSorter','pagesSorter','readSorter','finishedSorter'];
+    window[btnNames[i]] = document.querySelector(`thead td:nth-child(${i+1})`);
+    console.log(window[btnNames[i]]);
+}
 
 function Book(title, author, pages, pagesRead) {
     this.title = title;
@@ -50,7 +54,6 @@ function renderBooks(){
                     document.querySelector('#read').value = library[bookIndex].pagesRead;
                     library.splice(bookIndex, 1);
                     subBtn.textContent = 'Submit Changes';
-
                 })
             } else if(i === 1) {
                 sideBtn.addEventListener('click', () => {
@@ -66,7 +69,29 @@ function renderBooks(){
     }
 }
 
+function sortTitle(list) {
+    list.sort((a,b) => {
+        if(a.title > b.title){return -1;}
+        else if(a.title < b.title){return 1;}
+        else {return 0;}
+    });
+    renderBooks();
+}
+
+function sortAuthor() {
+
+}
+
+function sortPages() {
+
+}
+
+function sortRead() {
+
+}
+
 form.addEventListener('submit', () => {
+    subBtn.textContent = 'Add Book';
     const formTitle = document.querySelector('#title').value;
     const formAuthor = document.querySelector('#author').value;
     const formPages = document.querySelector('#pages').value;
