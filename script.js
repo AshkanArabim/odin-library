@@ -84,8 +84,8 @@ form.addEventListener('submit', () => {
 for (let i=0; i<5; i++) {
     window[btnNames[i]].addEventListener('click', () => {
         library.sort((a,b) => {
-            if(a[attrs[i]] > b[attrs[i]]) {return -1;}
-            else if (a[attrs[i]] < b[attrs[i]]) {return 1;}
+            if(a[attrs[i]] < b[attrs[i]]) {return -1;}
+            else if (a[attrs[i]] > b[attrs[i]]) {return 1;}
             else {return 0;};
         })
         for (let i=0; i<5; i++) {
