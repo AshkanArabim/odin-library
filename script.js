@@ -10,8 +10,8 @@ for (let i=0; i<5; i++) {
 function Book(title, author, pages, pagesRead) {
     this.title = title;
     this.author = author;
-    this.pages = pages;
-    this.pagesRead = pagesRead;
+    this.pages = Number(pages);
+    this.pagesRead = Number(pagesRead);
     if (this.pages > this.pagesRead) {
         this.isFinished = false;
     } else if (this.pages === this.pagesRead) {
@@ -80,7 +80,7 @@ form.addEventListener('submit', () => {
     const formAuthor = document.querySelector('#author').value;
     const formPages = document.querySelector('#pages').value;
     const formRead = document.querySelector('#read').value;
-    if (formPages < formRead) {
+    if (Number(formPages) < Number(formRead)) {
         alert("Pages read can't be more than total book pages.")
         return false;
     };
@@ -94,18 +94,12 @@ form.addEventListener('submit', () => {
 for (let i=0; i<5; i++) {
     const button = window[btnNames[i]];
     button.addEventListener('click', () => {
-        const tempLib = [...library];
         
-        if (listsEqual(library, tempLib)) {
-            console.log('they match!')
-            library = library.reverse();
-        } else {
-            library.sort((a,b) => {
-                if(a[attrs[i]] < b[attrs[i]]) {return -1;}
-                else if (a[attrs[i]] > b[attrs[i]]) {return 1;}
-                else {return 0;};
-            })
-        }
+        library.sort((a,b) => {
+            if(a[attrs[i]] < b[attrs[i]]) {return -1;}
+            else if (a[attrs[i]] > b[attrs[i]]) {return 1;}
+            else {return 0;};
+        })
 
         renderBooks()
     });
