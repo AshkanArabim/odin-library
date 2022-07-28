@@ -64,14 +64,14 @@ function renderBooks(){
     }
 }
 
-function listsEqual(list1, list2) {
-    for (let index in list1) {
-        if (list1[index] !== list2[index]) {
-            return false;
-        } else {
-            return true;
+function foundInTitles(item) {
+    let bookExist = false;
+    for (let bookIndex in library) {
+        if (library[bookIndex].title === item){
+            bookExist = true;
         }
     }
+    return bookExist;
 }
 
 form.addEventListener('submit', () => {
@@ -84,6 +84,10 @@ form.addEventListener('submit', () => {
         alert("Pages read can't be more than total book pages.")
         return false;
     };
+    if (foundInTitles(formTitle)) {
+        alert("There's already a book with this title in the library.")
+        return false;
+    }
     let x = new Book(formTitle, formAuthor, formPages, formRead);
     bookToLibrary(x);
     renderBooks();
