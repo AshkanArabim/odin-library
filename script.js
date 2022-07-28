@@ -92,31 +92,19 @@ form.addEventListener('submit', () => {
 })
 
 for (let i=0; i<5; i++) {
-    window[btnNames[i]].addEventListener('click', () => {
-
+    const button = window[btnNames[i]];
+    button.addEventListener('click', () => {
         const tempLib = [...library];
-
-        library.sort((a,b) => {
-            if(a[attrs[i]] < b[attrs[i]]) {return -1;}
-            else if (a[attrs[i]] > b[attrs[i]]) {return 1;}
-            else {return 0;};
-        })
         
-        for (let i=0; i<5; i++) {
-            let btnText = window[btnNames[i]];
-            btnText.textContent = btnText.textContent.replaceAll('⇑', '');
-            btnText.textContent = btnText.textContent.replaceAll('⇓', '');
-        }
-        window[btnNames[i]].textContent = '⇑' + window[btnNames[i]].textContent;
-
         if (listsEqual(library, tempLib)) {
             console.log('they match!')
             library = library.reverse();
-            if (window[btnNames[i]].textContent.search('⇑')) {
-                window[btnNames[i]].textContent = window[btnNames[i]].textContent.replaceAll('⇑','⇓');
-            } else if (window[btnNames[i]].textContent.search('⇓')) {
-                window[btnNames[i]].textContent = window[btnNames[i]].textContent.replaceAll('⇓','⇑');
-            }
+        } else {
+            library.sort((a,b) => {
+                if(a[attrs[i]] < b[attrs[i]]) {return -1;}
+                else if (a[attrs[i]] > b[attrs[i]]) {return 1;}
+                else {return 0;};
+            })
         }
 
         renderBooks()
