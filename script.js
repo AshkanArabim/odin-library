@@ -7,15 +7,13 @@ for (let i=0; i<5; i++) {
     window[btnNames[i]] = document.querySelector(`thead td:nth-child(${i+1})`);
 }
 
-function Book(title, author, pages, pagesRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = Number(pages);
-    this.pagesRead = Number(pagesRead);
-    if (this.pages > this.pagesRead) {
-        this.isFinished = false;
-    } else if (this.pages === this.pagesRead) {
-        this.isFinished = true;
+class Book {
+    constructor(title, author, pages, pagesRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.pagesRead = pagesRead;
+        this.isFinished = this.pagesRead < this.pages ? false : true;
     }
 }
 
@@ -78,9 +76,9 @@ form.addEventListener('submit', () => {
     subBtn.textContent = 'Add Book';
     const formTitle = document.querySelector('#title').value;
     const formAuthor = document.querySelector('#author').value;
-    const formPages = document.querySelector('#pages').value;
-    const formRead = document.querySelector('#read').value;
-    if (Number(formPages) < Number(formRead)) {
+    const formPages = Number(document.querySelector('#pages').value);
+    const formRead = Number(document.querySelector('#read').value);
+    if (formPages < formRead) {
         alert("Pages read can't be more than total book pages.")
         return false;
     };
